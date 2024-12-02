@@ -10,6 +10,7 @@ import {
 } from "@/db/queries";
 import { redirect } from "next/navigation";
 import { Unit } from "./unit";
+import { Sidebar } from "@/components/sidebar";
 
 export default async function LearnPage() {
   const userProgressData = getUserProgress();
@@ -30,7 +31,8 @@ export default async function LearnPage() {
   }
 
   return (
-    <div className="flex flex-row-reverse gap-[48px] px-6">
+    <div className="flex flex-row-reverse gap-[48px] px-6 ">
+      <Sidebar className="hidden lg:flex pt-20 mt-2" />
       <StickyWrapper>
         <UserProgress
           activeCourse={userProgess.activeCourse}
@@ -42,7 +44,7 @@ export default async function LearnPage() {
       <FeedWrapper>
         <Header title={userProgess.activeCourse.title} />
         {units.map((unit) => (
-          <div key={unit.id} className="mb-10">
+          <div key={unit.id} className="lg:w-[500px] mb-10 lg:ml-60">
             <Unit
               id={unit.id}
               order={unit.order}

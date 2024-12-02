@@ -1,11 +1,12 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn } from "@/data/lib/utils";
 import { Check, Crown, Star } from "lucide-react";
 import Link from "next/link";
 import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+
 type Props = {
   id: number;
   index: number;
@@ -26,27 +27,21 @@ export const LessonButton = ({
   const cycleLength = 8;
   const cycleIndex = index % cycleLength;
 
-  let indentationLevel;
-
-  if (cycleIndex <= 2) {
-    indentationLevel = cycleIndex;
-  } else if (cycleIndex <= 4) {
-    indentationLevel = 4 - cycleIndex;
-  } else if (cycleIndex <= 6) {
-    indentationLevel = 4 - cycleIndex;
-  } else {
-    indentationLevel = cycleIndex - 8;
-  }
+  let indentationLevel = cycleIndex <= 2
+    ? cycleIndex
+    : cycleIndex <= 4
+      ? 4 - cycleIndex
+      : cycleIndex <= 6
+        ? 4 - cycleIndex
+        : cycleIndex - 8;
 
   const rightPosition = indentationLevel * 40;
-
   const isFirst = index === 0;
   const isLast = index === totalCount;
   const isCompleted = !current && !locked;
-
   const Icon = isCompleted ? Check : isLast ? Crown : Star;
-
   const href = isCompleted ? `/lesson/${id}` : "/lesson";
+
 
   return (
     <Link
@@ -81,14 +76,14 @@ export const LessonButton = ({
               <Button
                 size="rounded"
                 variant={locked ? "locked" : "secondary"}
-                className="h-[70px] w-[70px] border-b-8 "
+                className="h-[70px] w-[70px] border-b-8"
               >
                 <Icon
                   className={cn(
                     "h-10 w-10",
                     locked
                       ? "fill-neutral-400 text-neutral-400 stroke-neutral-400"
-                      : "fill-primary-foreground text-primary-foreground",
+                      : "fill-primary-foreground text-green-foreground",
                     isCompleted && "fill-none stroke-[4]"
                   )}
                 />
@@ -96,11 +91,13 @@ export const LessonButton = ({
             </CircularProgressbarWithChildren>
           </div>
         ) : (
+
           <Button
             size="rounded"
             variant={locked ? "locked" : "secondary"}
-            className="h-[70px] w-[70px] border-b-8 "
+            className="h-[70px] w-[70px] border-b-8"
           >
+
             <Icon
               className={cn(
                 "h-10 w-10",
@@ -112,6 +109,7 @@ export const LessonButton = ({
             />
           </Button>
         )}
+
       </div>
     </Link>
   );

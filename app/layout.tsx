@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ExitModal } from "@/components/modals/exit-modal";
+import { PracticeModal } from "@/components/modals/practice-modal";
 
 
 const geistSans = localFont({
@@ -35,6 +36,7 @@ export default function RootLayout({
         >
           <Toaster />
           <ExitModal/>
+          <PracticeModal/>
           {children}
         </body>
       </html>

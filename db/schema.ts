@@ -51,7 +51,7 @@ export const lessons = pgTable("lessons", {
   order: integer("order").notNull(),
 });
 
-export const lessonRealtions = relations(lessons, ({ one, many }) => ({
+export const lessonRelations = relations(lessons, ({ one, many }) => ({
   unit: one(units, {
     fields: [lessons.unitId],
     references: [units.id],
@@ -74,7 +74,7 @@ export const challenges = pgTable("challenges", {
   order: integer("order").notNull(),
 });
 
-export const challengesRealtions = relations(challenges, ({ one, many }) => ({
+export const challengesRetions = relations(challenges, ({ one, many }) => ({
   lesson: one(lessons, {
     fields: [challenges.lessonId],
     references: [lessons.id],

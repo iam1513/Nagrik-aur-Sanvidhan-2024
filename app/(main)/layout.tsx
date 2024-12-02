@@ -1,5 +1,7 @@
 import { MobileHeader } from "@/components/mobile-header";
+import Navbar from "@/components/nav/navbar";
 import { Sidebar } from "@/components/sidebar";
+
 
 type props = {
   children: React.ReactNode;
@@ -9,10 +11,11 @@ const MainLayout = ({ children }: props) => {
   return (
     <>
       <MobileHeader />
-      <Sidebar className="hidden lg:flex" />
-      <main className="lg:pl-[256px] h-full pt-[50px] lg:pt-0">
-        <div className="max-w-[1056px] mx-auto pt-6 h-full">{children}</div>
+      <Navbar className="hidden lg:flex" />
+      <main className=" min-h-screen pt-[50px] lg:pt-0 mt-20 bg-[#121212]">
+        <div className="max-w-[1056px] mx-auto pt-6 h-full bg-[#121212]">{children}</div>
       </main>
+
     </>
   );
 };

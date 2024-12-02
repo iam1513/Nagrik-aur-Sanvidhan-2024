@@ -1,15 +1,15 @@
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import { Sidebar } from "./sidebar";
 import { Menu } from "lucide-react";
+import { SidebarMobileOnly } from "./sidebar-only-mobile";
 
 export const MobileSideBar = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <Menu className="text-white-500" />
+        <Menu className="text-[white]" />
       </SheetTrigger>
       <SheetContent className="p-0 z-[100] bg-inherit" side="left">
-        <Sidebar />
+        <SidebarMobileOnly />
       </SheetContent>
     </Sheet>
   );

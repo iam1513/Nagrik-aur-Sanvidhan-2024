@@ -1,9 +1,9 @@
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { SideBarItem } from "./sidebar-item";
 import { ClerkLoaded, ClerkLoading, UserButton } from "@clerk/nextjs";
 import { Loader } from "lucide-react";
+import { cn } from "@/data/lib/utils";
 
 type Props = {
   className?: string;
@@ -19,16 +19,19 @@ export const Sidebar = ({ className }: Props) => {
         className
       )}
     >
-      <Link href="/learn">
+      {/* <Link href="/learn">
         <div className="pt-8 pl-4 pb-7 flex items-center gap-x-3">
           <Image src="/image.png" height={40} width={40} alt="mascot" />
           <h1 className="text-2xl font-extrabold text-green-600 tracking-wide">
             CnC
           </h1>
         </div>
-      </Link>
+      </Link> */}
+
+
       <div className="flex flex-col gap-y-2 flex-1">
-        <SideBarItem label="Learn" href="/learn" iconSrc="/image.png" />
+        {/* <SideBarItem label="Learn" href="/knowledge" iconSrc="/image.png" /> */}
+        <SideBarItem label="Quiz" href="/learn" iconSrc="/image.png" />
         <SideBarItem
           label="Leaderboard"
           href="/leaderboard"
@@ -38,14 +41,14 @@ export const Sidebar = ({ className }: Props) => {
         <SideBarItem label="Shop" href="/shop" iconSrc="/image.png" />
       </div>
 
-      <div className="p-4">
+      {/* <div className="p-4">
         <ClerkLoading>
           <Loader className="h-5 text-muted-foreground animate-spin" />
         </ClerkLoading>
         <ClerkLoaded>
           <UserButton afterSignOutUrl="/" />
         </ClerkLoaded>
-      </div>
+      </div> */}
     </div>
   );
 };
