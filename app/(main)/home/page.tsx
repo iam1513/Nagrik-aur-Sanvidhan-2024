@@ -42,13 +42,13 @@ export default function Home() {
             <main className="bg-[#121212] text-[#b3b3b3]">
 
                 {/* ================= HERO ================= */}
-                <section className="px-6 py-20 text-center">
+                <section className="px-6 py-20 pb-10 text-center">
                     <motion.div variants={stagger} initial="hidden" animate="visible">
                         <motion.h1
                             variants={fadeUp}
                             className="text-4xl md:text-5xl font-bold text-white mb-3"
                         >
-                            Citizens & Constitution
+                            Citizen & Constitution
                         </motion.h1>
 
                         <motion.p
