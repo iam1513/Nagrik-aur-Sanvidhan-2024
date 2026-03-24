@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -47,13 +48,23 @@ export default function Home() {
           variants={fadeUp}
           className="text-center space-y-3"
         >
+          <div className="flex justify-center -mb-7 -mt-4">
+              <Image
+                src="/logo.png"
+                alt="Logo"
+                width={220}
+                height={210}
+                priority
+                className="object-contain"
+              />
+            </div>
           <h1 className="text-4xl md:text-5xl font-bold">
             <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
               Nagrik Aur Samvidhan
             </span>
           </h1>
 
-          <p className="text-neutral-400 max-w-3xl mx-auto">
+          <p className="text-neutral-400 max-w-3xl mx-auto font-bold">
             A modern civic-tech platform to understand the Indian Constitution
             through stories, debates, and constitutional reasoning.
           </p>
@@ -265,7 +276,7 @@ function SectionHeading({ title, subtitle }: any) {
 function AuthButtons() {
   return (
     <div className="w-full flex justify-center">
-      <div className="flex flex-col sm:flex-row gap-3 w-full max-w-[420px]">
+      <div className="flex flex-col sm:flex-row gap-3 w-full max-w-[420px] justify-center items-center">
         <ClerkLoading>
           <Loader className="h-4 w-4 animate-spin text-neutral-400 mx-auto" />
         </ClerkLoading>
@@ -277,6 +288,7 @@ function AuthButtons() {
                 size="lg"
                 variant="secondary"
                 className="w-full"
+                // onClick={}
               >
                 Get Started For Free
               </Button>
